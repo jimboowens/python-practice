@@ -18,12 +18,13 @@ print 2=="2"
 gameOn = True
 i=0
 secretNumber = "5"
+print "Game on!"
 while(gameOn == True):
     number = raw_input ("What is the Secret Number? > ")
     if (number == secretNumber):
         print 'Yes! You got the Secret Number.'
         gameOn = False
-
     else:
         print ('Sorry, you guessed wrong. Try again!')
         i+=1
+print 'Game Over.'
