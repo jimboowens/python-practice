@@ -35,4 +35,30 @@ while (startingPointSquare == False):
     except:
         print "You entered an invalid character, please try again.."
 for i in range (1,square+1):
+
     print "*"*square
+
+
+lengthTruth = False
+while (lengthTruth == False):
+    try:
+        length = int(raw_input("Please give me a length: "))
+        if (type(start) == int):
+            lengthTruth = True
+    except:
+        print "You entered an invalid character, please try again.."
+widthTruth = False
+while (widthTruth == False ):
+    try:
+        width = int(raw_input("Please give me a width: "))+1
+        if (type(end) == int):
+            widthTruth = True
+    except:
+            print "You entered an invalid character, please try again.."
+for i in range (1,length+1):
+    if (i==1):
+        print "*"*width
+    elif (i>1 and i<length):
+       print  "*"+ " " * (width - 2) + "*"
+    else:
+       print  "*"*width
