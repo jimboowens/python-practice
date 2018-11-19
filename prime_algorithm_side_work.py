@@ -10,4 +10,6 @@ for i in range (2,user_num / 2 + 1):
                 user_product = user_product * i 
                 if (user_product == user_num):
                          break
+
 print prime_factors
+# asdfadf
