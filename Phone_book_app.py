@@ -40,21 +40,19 @@ while end_book == False:
     5. Quit"""
     while user_verify_truth == False: 
         try:
-            user_input = int(raw_input("What do you want to do? > ").upper())
+            user_input = int(raw_input("What do you want to do? > ").capitalize())
             if type(user_input) == int :
                 user_verify_truth = True
         except:
             print "You entered an invalid character, please try again.."
     if user_input == 1:
         # command
-        name_query = raw_input ("What name would you like to look up? > ").upper()
-        print name_query
-        print (name_query.name)
-        print (name_query.number)
+        name_query = raw_input ("What name would you like to look up? > ").capitalize()
+        print phone_book.get(name_query)
         user_verify_truth = False
     if user_input == 2:
-        name_entry = raw_input ("What name would you like to set? > ").upper()
-        name_name = raw_input ("What is the name of the contact you would like to set? > ").upper()
+        name_entry = raw_input ("What name would you like to set? > ").capitalize()
+        name_name = raw_input ("What is the name of the contact you would like to set? > ").capitalize()
         name_number = raw_input ("What is their phone number? > ")
         print "Entry stored for %s" %name_name
         # command
