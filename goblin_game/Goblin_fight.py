@@ -15,18 +15,18 @@ def fight ():
     goblin_health = 6
     goblin_power = 2
     while (hero_health > 0 and goblin_health > 0):
-        message_intro """You have %d health and %d power.
+        message_intro = """You have %d health and %d power.
         The goblin has %d health and %d power.
         What do you want to do?
         1. Fight goblin
         2. Dance
         3. Flee"""
-        print message_intro %(hero_name,hero_health,hero_power,goblin_health,goblin_power)
+        print message_intro % (hero_name,hero_health,hero_power,goblin_health,goblin_power)
         user_input = raw_input("        > ")
         if user_input == "1": 
             goblin_health -= hero_power
             message = """%s standeth and fighteth the goblin.            
-            you have done %d damage!
+            You have done %d damage!
             The goblin's remaining health is %d"""
             print message %(hero_name,hero_power,goblin_health)
         elif user_input == "2":
