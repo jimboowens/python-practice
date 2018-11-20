@@ -4,6 +4,7 @@
     # 2. dance
     # 3. flee
 import os
+
 # os.system() will take any command, and python will run it if it can
 hero_name = raw_input("What is thy name, brave adventurer? > ")
 print "Welcome, %s! Thou art a brave soul!" % hero_name
@@ -15,7 +16,7 @@ def fight ():
     goblin_health = 6
     goblin_power = 2
     while (hero_health > 0 and goblin_health > 0):
-        message_intro """You have %d health and %d power.
+        message_intro =  """%s, You have %d health and %d power.
         The goblin has %d health and %d power.
         What do you want to do?
         1. Fight goblin
