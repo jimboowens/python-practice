@@ -1,7 +1,12 @@
 
 import math
+<<<<<<< HEAD
 from pygame.sprite import Group, groupcollide
 class Ship (object):
+=======
+
+class Ship (self):
+>>>>>>> 8ea8be6c0342d672ed0164f1f6d606f7716fcc3d
     def __init__(self):
         self.x = 0
         self.y = 200
@@ -10,7 +15,10 @@ class Ship (object):
         self.should_move_up = False
         self.should_move_left = False
         self.should_move_right = False
+<<<<<<< HEAD
         self.health = 11
+=======
+>>>>>>> 8ea8be6c0342d672ed0164f1f6d606f7716fcc3d
     def should_move(self,direction, start = True):
         if direction == "right":
             self.should_move_right = start
@@ -32,6 +40,10 @@ class Ship (object):
                 self.y += self.speed
         elif self.should_move_up:
             if self.y > 32:
+<<<<<<< HEAD
                 self.y -= self.speed
     def take_damage(self, object):
         self.health-=object.damage
+=======
+                self.y -= self.speed
+>>>>>>> 8ea8be6c0342d672ed0164f1f6d606f7716fcc3d
