@@ -3,6 +3,7 @@ import os
 from pygame.sprite import Sprite
 
 pygame.display.set_mode((620, 480))
+laser_image = pygame.image.load('laserimage.png')
 
 class Laser(Sprite):
     def __init__(self,x,y):
@@ -11,7 +12,7 @@ class Laser(Sprite):
         self.rect = self.image.get_rect()
         self.rect.bottom = y
         self.rect.centerx = x
-        self.speedx = 10
+        self.speedx = 20
     def update_me(self):
         self.rect.x += self.speedx
         if self.rect.bottom < 0:
