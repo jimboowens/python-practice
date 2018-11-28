@@ -3,13 +3,15 @@ from pygame.sprite import Sprite
 import random
 import os
 
-asteroid_image1 = pygame.image.load('asteroidimage1.png')
-asteroid_image2 = pygame.image.load('asteroidimage2.png')
-asteroid_image3 = pygame.image.load('asteroidimage3.png')
-
-WHITE = (255,255,255)
-
 pygame.display.set_mode((620, 480))
+
+asteroid_image1 = pygame.image.load('asteroidimage1.png').convert()
+asteroid_image2 = pygame.image.load('asteroidimage2.png').convert()
+asteroid_image3 = pygame.image.load('asteroidimage3.png').convert()
+
+BLACK = (0,0,0)
+WHITE = (255, 255, 255)
+
 
 class Asteroid(Sprite):
     def __init__(self):
@@ -31,7 +33,7 @@ class Asteroid(Sprite):
         self.radius = int(self.rect.width / 2)
 
         self.rect.y = random.randrange(480 - self.rect.height)
-        self.rect.x = random.randrange(-100, -40)
+        self.rect.x = random.randrange(400, 600)
         self.speedx = random.randrange(1, 6)
         self.speedy = random.randrange(-3, 3)
 

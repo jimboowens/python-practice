@@ -7,7 +7,7 @@ from Comet import Comet
 from Laser import Laser
 from Candy import Candy
 from Start_Button import Start_Button
-from pygame.sprite import Group, groupcollide
+from pygame.sprite import Sprite, Group, groupcollide
 
 screen_size = (620,480)
 tick = 0
@@ -22,17 +22,29 @@ pygame.mixer.init()
 # background_music.play()
 
 pygame_screen = pygame.display.set_mode(screen_size)
+picture = pygame.transform.scale(pygame_screen, (620, 480))
+# You can then get the bounding rectangle of picture with
+
+rect = pygame_screen.get_rect()
+# and move the picture with
+
+rect = rect.move((0, 0))
+
 screen = pygame.display.set_caption("SPACE SHOOTER")
 
 background_image = pygame.image.load('background1.png')
-ship_image = pygame.image.load('shipimage.png')
-comet_image = pygame.image.load('cometimage.png')
-candy_image = pygame.image.load('candyimage.png')
-asteroid_image1 = pygame.image.load('asteroidimage1.png')
-asteroid_image2 = pygame.image.load('asteroidimage2.png')
-asteroid_image3 = pygame.image.load('asteroidimage3.png')
-laser_image = pygame.image.load('laserimage.png')
-
+ship_image = pygame.image.load('shipimage.png').convert()
+ship_image.set_colorkey((0,0,0))
+ship_image = pygame.transform.scale(ship_image,(40,64))
+ship_image = ship_image.convert()
+comet_image = pygame.image.load('cometimage.png').convert()
+candy_image = pygame.image.load('candyimage.png').convert()
+asteroid_image1 = pygame.image.load('asteroidimage1.png').convert()
+asteroid_image2 = pygame.image.load('asteroidimage2.png').convert()
+asteroid_image3 = pygame.image.load('asteroidimage3.png').convert()
+laser_image = pygame.image.load('laserimage.png').convert()
+# ship_image.set_colorkey((255,255,255))
+# screen.blit(ship_image,(0,0))
 ship = Ship()
 asteroids = Group()
 asteroids.add(Asteroid())
@@ -58,8 +70,8 @@ while running:
             elif event.key == 274:
                 ship.should_move("down")
             elif event.key == 32:
-                new_arrow = Arrow(ship)
-                arrows.add(new_arrow)
+                new_laser = Laser(ship, ship.y)
+                lasers.add(new_laser)
         elif event.type == pygame.KEYUP:
             if event.key == 275:
                 ship.should_move("right",False)
@@ -74,8 +86,8 @@ while running:
             if start_button.rect.collidepoint(mouse_x, mouse_y):
                 game_start = True
             
-    
-    pygame_screen.blit(background_image,[0,0])
+    pygame_screen.fill((0,0,0))
+    pygame_screen.blit(background_image,[-tick,0])
     ship.draw_me(620,480)
     if game_start == True:        
         for asteroid in asteroids:
