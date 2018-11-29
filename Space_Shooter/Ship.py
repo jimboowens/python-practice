@@ -1,10 +1,11 @@
 
 import math
 import pygame
-from pygame.sprite import Group, groupcollide
+from pygame.sprite import Group, groupcollide, Sprite
+from pygame import Rect
 class Ship (object):
     def __init__(self):
-        self.x = 400
+        self.x = 0
         self.y = 200
         self.speed = 10
         self.should_move_down = False
@@ -16,8 +17,6 @@ class Ship (object):
         self.rect.top = self.y
         self.surface = pygame.image.load("shipimage.png").convert()
         self.surface.set_colorkey((0,0,0))
-        #posicao do puto
-        self.x = 227
         self.health = 11
     def should_move(self,direction, start = True):
         if direction == "right":
@@ -43,3 +42,6 @@ class Ship (object):
                 self.y -= self.speed
     def take_damage(self, object):
         self.health-=object.damage
+    # def collide_test(self, object):
+    #     if self.colliderect(object):
+    #         self.health -=object.damage
