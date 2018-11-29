@@ -38,7 +38,7 @@ class Ship (object):
             if self.y < 420:
                 self.y += self.speed
         elif self.should_move_up:
-            if self.y > 32:
+            if self.y > 0:
                 self.y -= self.speed
     def take_damage(self, object):
         self.health-=object.damage

@@ -16,7 +16,7 @@ asteroid_image3 = pygame.image.load('asteroidimage3.png').convert_alpha()
 class Asteroid(Sprite):
     def __init__(self):
         super(Asteroid, self).__init__()
-        rand_asteroid = random.randint(1,2)
+        rand_asteroid = random.randint(1,3)
 
         if rand_asteroid == 1:
             asteroid_image = asteroid_image1
@@ -35,10 +35,10 @@ class Asteroid(Sprite):
 
         # pygame.draw.circle(self.image, RED, self.rect.center, self.radius)
 
-        self.rect.x = random.randrange(w - self.rect.width)
-        self.rect.y = random.randrange(-100, -40)
-        self.speedy = random.randrange(1, 6)
-        self.speedx = random.randrange(-3, 3)
+        self.rect.x = random.randrange(700, 800)
+        self.rect.y = random.randrange(0,480)
+        self.speedy = random.randrange(-3, 3)
+        self.speedx = random.randrange(-6, -1)
 
         # For Rotation
         self.rot = 0
@@ -50,11 +50,11 @@ class Asteroid(Sprite):
     def update_me(self):
         self.rect.x += self.speedx
         self.rect.y += self.speedy
-        if self.rect.top > h + 10 or self.rect.left < -25 or self.rect.right > w + 20:
-            self.rect.x = random.randrange(w - self.rect.width)
-            self.rect.y = random.randrange(-100, -40)
+        if self.rect.top > h + 700 or self.rect.left < -25 or self.rect.right > w + 2000:
+            self.rect.x = random.randrange(700,800)
+            self.rect.y = random.randrange(0, 480)
             self.speedy = random.randrange(1, 8)
-            self.rotate()
+            self.rotate_me()
 
 
     def rotate_me(self):

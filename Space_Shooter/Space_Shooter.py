@@ -71,7 +71,7 @@ start_button = Start_Button(pygame_screen)
 
 while running:
     tick += 1
-    if tick % 90 == 0:
+    if tick % 30 == 0:
         asteroids.add(Asteroid()) 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
